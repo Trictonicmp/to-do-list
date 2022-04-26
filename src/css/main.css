@@ -1,0 +1,49 @@
+@import url('reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;600&display=swap');
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+main {
+  width: calc(100% - 2em);
+  max-width: 30em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header h1 {
+  font-size: 1.1em;
+  padding: 0.8em;
+  flex-grow: 1;
+  color: #666;
+}
+
+.header button {
+  width: 3em;
+  border: none;
+  background-color: white;
+}
+
+.header button img {
+  width: 60%;
+  opacity: 0.2;
+}
+
+.header button:hover {
+  cursor: pointer;
+}
