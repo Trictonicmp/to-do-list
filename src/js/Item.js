@@ -6,26 +6,27 @@ export default class Item {
     this.description = description;
     this.index = index;
     this.completed = completed;
+
+    this.htmlElement = document.createElement('li');
+    this.descriptionSpan = document.createElement('span');
+    this.descriptionInput = document.createElement('input');
+
+    this.createHtml();
   }
 
   createHtml() {
-    const li = document.createElement('li');
-
     const checkbox = document.createElement('input');
     checkbox.classList.add('checkbox');
     checkbox.type = 'checkbox';
-    li.append(checkbox);
+    this.htmlElement.append(checkbox);
 
-    const labelDesc = document.createElement('label');
-    labelDesc.classList.add('description');
-    const description = document.createElement('span');
-    description.innerText = this.description;
-    labelDesc.append(description);
-    const inputDesc = document.createElement('input');
-    inputDesc.type = 'text';
-    inputDesc.value = this.description;
-    labelDesc.append(inputDesc);
-    li.append(labelDesc);
+    this.descriptionSpan.innerText = this.description;
+    this.descriptionSpan.classList.add('description');
+    this.descriptionInput.type = 'text';
+    this.descriptionInput.value = this.description;
+    this.descriptionInput.classList.add('description-input');
+    this.htmlElement.append(this.descriptionSpan);
+    this.htmlElement.append(this.descriptionInput);
 
     const move = document.createElement('button');
     move.type = 'button';
@@ -35,7 +36,7 @@ export default class Item {
     dotsImg.src = dotsSvg;
     dotsImg.alt = ':';
     move.append(dotsImg);
-    li.append(move);
+    this.htmlElement.append(move);
 
     const trash = document.createElement('button');
     trash.type = 'button';
@@ -45,8 +46,19 @@ export default class Item {
     trashImg.src = trashSvg;
     trashImg.alt = 'delete';
     trash.append(trashImg);
-    li.append(trash);
+    this.htmlElement.append(trash);
+  }
 
-    return li;
+  getHtml() {
+    return this.htmlElement;
+  }
+
+  makeEditable(editable) {
+    if(editable){
+      this.htmlElement.classList.add('editing');
+    }
+    else {
+      this.htmlElement.classList.remove('editing');
+    }
   }
 }

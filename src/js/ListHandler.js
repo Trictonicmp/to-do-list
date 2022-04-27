@@ -9,6 +9,12 @@ export default class ListHandler {
       });
     }
     this.itemsContainer = document.getElementById('items-container');
+
+    this.document = document.querySelector('html');
+    this.document.onclick = (event) => {
+      this.clickListener(event);
+    }
+
     this.renderItems();
   }
 
@@ -20,8 +26,21 @@ export default class ListHandler {
 
   renderItems() {
     this.itemsContainer.innerHTML = '';
-    for (let i = 0; i < this.items.length; i += 1) {
-      this.itemsContainer.append(this.items[i].createHtml());
-    }
+    this.items.forEach(item => {
+      this.itemsContainer.append(item.getHtml());
+    });
+  }
+
+  clickListener(event) {
+    this.items.forEach((item) => {
+      if(event.target === item.descriptionSpan) {
+        console.log(event.target);
+        item.makeEditable(true);
+      }
+      if(event.target !== item.descriptionSpan) {
+        console.log(event.target);
+        item.makeEditable(false);
+      }
+    });
   }
 }

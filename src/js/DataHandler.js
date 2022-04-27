@@ -4,12 +4,10 @@ export default class DataHandler {
   constructor() {
     this.listHandler = null;
     if(localStorage.getItem('list-data')) {
-      console.log('import');
       const storedData = JSON.parse(localStorage.getItem('list-data'));
       this.listHandler = new ListHandler(storedData);  
     }
     else {
-      console.log('make');
       this.listHandler = new ListHandler();
     }
     this.form = document.forms[0];
