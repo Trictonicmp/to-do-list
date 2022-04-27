@@ -25,6 +25,31 @@ main > * {
   border-bottom: 1px solid #eee;
 }
 
+.list-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  width: 3em;
+}
+
+.list-button img {
+  width: 60%;
+  opacity: 0.2;
+  transition-property: opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+}
+
+.list-button:hover {
+  cursor: pointer;
+}
+
+.list-button:hover img {
+  opacity: 0.5;
+}
+
 .header {
   width: 100%;
   display: flex;
@@ -38,19 +63,35 @@ main > * {
   color: #666;
 }
 
-.header button {
-  width: 3em;
-  border: none;
-  background-color: white;
-}
-
-.header button img {
-  width: 60%;
-  opacity: 0.2;
-}
-
 .header button:hover {
   cursor: pointer;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form input {
+  font-size: 0.9em;
+  color: #777;
+  padding: 0.8em;
+  font-style: italic;
+  border: none;
+  flex-grow: 1;
+}
+
+.form input:active,
+.form input:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.form .list-button img {
+  width: 30%;
+  opacity: 1;
 }
 
 .list-container {
@@ -91,34 +132,12 @@ main > * {
   flex-grow: 1;
 }
 
-.list-container li .list-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  width: 3em;
-}
-
-.list-container li .list-button img {
-  width: 60%;
-  opacity: 0.2;
-  transition-property: opacity;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in;
-}
-
-.list-container li .list-button:hover img {
-  opacity: 0.5;
-  cursor: pointer;
-}
-
 /*----------styles when NOT editing----------*/
-.list-container li .description input {
+.list-container :not(.editing) .description input {
   display: none;
 }
 
-.list-container li .trash {
+.list-container :not(.editing) .trash {
   display: none;
 }
 
@@ -134,4 +153,22 @@ main > * {
 
 .list-container .editing .move {
   display: none;
+}
+
+.footer {
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  background-color: #f2f2f2;
+}
+
+.footer button {
+  background-color: transparent;
+  border: none;
+}
+
+.footer button:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
