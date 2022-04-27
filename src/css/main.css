@@ -1,12 +1,27 @@
 @import url('reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;600&display=swap');
 
+
+/* ---------- CSS variables ---------- */
+:root {
+  --body-color: #fefefe;
+  --main-color: #fff;
+  --text-color: #555;
+  --text-input-color: #777;
+  --border-color: #eee;
+  --accent-color: #f2f2f2;
+  --editing-color: #fffeca;
+  --icon-opacity: 0.2;
+  --icon-opacity-hover: 0.5;
+}
+
 body {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--body-color);
 }
 
 main {
@@ -16,12 +31,13 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: var(--main-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-main > * {
-  border-bottom: 1px solid #eee;
+main > *,
+.list-container > * {
+  border-bottom: 1px solid var(--border-color);
 }
 
 .list-button {
@@ -35,7 +51,7 @@ main > * {
 
 .list-button img {
   width: 60%;
-  opacity: 0.2;
+  opacity: var(--icon-opacity);
   transition-property: opacity;
   transition-duration: 0.2s;
   transition-timing-function: ease-in;
@@ -46,7 +62,7 @@ main > * {
 }
 
 .list-button:hover img {
-  opacity: 0.5;
+  opacity: var(--icon-opacity-hover);
 }
 
 .header {
@@ -59,7 +75,7 @@ main > * {
   font-size: 1.1em;
   padding: 0.8em;
   flex-grow: 1;
-  color: #666;
+  color: var(--text-color);
 }
 
 .footer button {
@@ -79,7 +95,7 @@ main > * {
 
 .form input {
   font-size: 0.9em;
-  color: #777;
+  color: var(--text-color);
   padding: 0.8em;
   font-style: italic;
   border: none;
@@ -117,7 +133,7 @@ main > * {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1em;
   background-color: transparent;
-  color: #555;
+  color: var(--text-color);
 }
 
 .list-container li input[type=text]:focus,
@@ -128,7 +144,7 @@ main > * {
 }
 
 .list-container li .description {
-  color: #555;
+  color: var(--text-color);
   font-size: 1em;
   padding: 0.8em;
   flex-grow: 1;
@@ -146,7 +162,7 @@ main > * {
 /* ----------styles when editing---------- */
 
 .list-container .editing {
-  background-color: #fffeca;
+  background-color: var(--editing-color);
 }
 
 .list-container .editing .description span {
@@ -162,7 +178,7 @@ main > * {
   padding: 1em;
   display: flex;
   justify-content: center;
-  background-color: #f2f2f2;
+  background-color: var(--accent-color);
 }
 
 .footer button:hover {
