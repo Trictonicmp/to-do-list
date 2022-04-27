@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# To-Do List
 
 > Simple yet powerful to-do app to manage your daily tasks!
 
