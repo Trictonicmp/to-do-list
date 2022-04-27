@@ -11,12 +11,10 @@ export default class Item {
   createHtml() {
     const li = document.createElement('li');
 
-    const checkLabel = document.createElement('label');
-    checkLabel.classList.add('checkbox');
     const checkbox = document.createElement('input');
+    checkbox.classList.add('checkbox');
     checkbox.type = 'checkbox';
-    checkLabel.append(checkbox);
-    li.append(checkLabel);
+    li.append(checkbox);
 
     const labelDesc = document.createElement('label');
     labelDesc.classList.add('description');

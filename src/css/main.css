@@ -8,6 +8,7 @@
   --main-color: #fff;
   --text-color: #555;
   --text-input-color: #777;
+  --text-disabled-color: #aaa;
   --border-color: #eee;
   --accent-color: #f2f2f2;
   --editing-color: #fffeca;
@@ -47,6 +48,7 @@ main > *,
   background-color: transparent;
   border: none;
   width: 3em;
+  min-width: 3em;
 }
 
 .list-button img {
@@ -125,7 +127,13 @@ main > *,
 }
 
 .list-container .checkbox {
-  padding: 0.8em;
+  margin-left: 0.8em;
+}
+
+.list-container .checkbox:checked + .description span {
+  text-decoration: line-through;
+  font-style: italic;
+  color: var(--text-disabled-color);
 }
 
 .list-container li input[type=text] {
