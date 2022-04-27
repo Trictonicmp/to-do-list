@@ -1,9 +1,15 @@
 import Item from './Item.js';
 
-export default class ItemsHandler {
-  constructor() {
+export default class ListHandler {
+  constructor(items = []) {
     this.items = [];
+    if(items) {
+      items.forEach(item => {
+        this.items.push(new Item(item.description, this.items.length, item.completed));
+      });
+    }
     this.itemsContainer = document.getElementById('items-container');
+    this.renderItems();
   }
 
   addItem(description) {
