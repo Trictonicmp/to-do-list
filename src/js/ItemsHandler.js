@@ -13,9 +13,8 @@ export default class ItemsHandler {
   }
 
   renderItems() {
-    console.log(this.items);
     this.itemsContainer.innerHTML = '';
-    for(let i = 0; i < this.items.length; i += 1) {
+    for (let i = 0; i < this.items.length; i += 1) {
       this.itemsContainer.append(this.items[i].createHtml());
     }
   }

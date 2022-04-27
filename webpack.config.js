@@ -1,11 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-
 module.exports = {
   entry: './src/js/index.js',
   output: {
-    assetModuleFilename: 'images/[hash][ext][query]'
+    assetModuleFilename: 'images/[hash][ext][query]',
   },
   mode: 'development',
   module: {
@@ -13,8 +12,8 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          "style-loader", 
-          "css-loader"
+          'style-loader',
+          'css-loader',
         ],
       },
       {
@@ -24,7 +23,7 @@ module.exports = {
       {
         test: /\.html$/,
         use: [
-          'html-loader'
+          'html-loader',
         ],
       },
     ],
@@ -40,6 +39,6 @@ module.exports = {
       directory: path.join(__dirname, 'public'),
     },
     port: 9000,
-    compress: true
+    compress: true,
   },
 };

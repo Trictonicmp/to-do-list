@@ -1,8 +1,7 @@
-/*------------------ CSS ------------------ */
+/* ------------------ CSS ------------------ */
 import '../css/main.css';
 
 import ItemsHandler from './ItemsHandler.js';
-
 
 const itemsHandler = new ItemsHandler();
 itemsHandler.addItem('First Element');

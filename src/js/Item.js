@@ -2,7 +2,7 @@ import dotsSvg from '../images/dots.svg';
 import trashSvg from '../images/delete.svg';
 
 export default class Item {
-  constructor(description, index, completed=false) {
+  constructor(description, index, completed = false) {
     this.description = description;
     this.index = index;
     this.completed = completed;
@@ -33,8 +33,7 @@ export default class Item {
     move.type = 'button';
     move.classList.add('list-button');
     move.classList.add('move');
-    const dotsImg = document.createElement('img');
-    const myDots = new Image();
+    const dotsImg = new Image();
     dotsImg.src = dotsSvg;
     dotsImg.alt = ':';
     move.append(dotsImg);
