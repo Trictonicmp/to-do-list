@@ -7,14 +7,17 @@ export default class Item {
     this.index = index;
     this.completed = completed;
     this.isNew = true;
+    this.isEditing = false;
 
     this.htmlElement = document.createElement('li');
     this.descriptionSpan = document.createElement('span');
-    this.descriptionInput = document.createElement('input');
+    this.descriptionInput = document.createElement('textarea');
+    this.descriptionInput.rows = 1;
     this.deleteButton = document.createElement('button');
     this.htmlElement.classList.add('insert');
     this.descriptionInput.oninput = () => {
       this.updateDescription();
+      this.updateInputHeight();
     };
 
     this.deleteButton.onclick = () => {
@@ -36,6 +39,10 @@ export default class Item {
     this.descriptionSpan.innerText = this.description;
   }
 
+  updateInputHeight() {
+    this.descriptionInput.style.height = this.descriptionInput.scrollHeight.toString() + 'px';
+  }
+
   createHtml() {
     const checkbox = document.createElement('input');
     checkbox.classList.add('checkbox');
@@ -44,7 +51,6 @@ export default class Item {
 
     this.descriptionSpan.innerText = this.description;
     this.descriptionSpan.classList.add('description');
-    this.descriptionInput.type = 'text';
     this.descriptionInput.value = this.description;
     this.descriptionInput.classList.add('description-input');
     this.htmlElement.append(this.descriptionSpan);
@@ -80,10 +86,16 @@ export default class Item {
 
   makeEditable(editable) {
     if (editable) {
+      if(!this.isEditing) {
+        let spanHeight = this.descriptionSpan.clientHeight;
+        this.descriptionInput.style.height = spanHeight + 'px';
+        this.isEditing = true;
+      }
       this.htmlElement.classList.add('editing');
       this.descriptionInput.focus();
     } else {
       this.htmlElement.classList.remove('editing');
+      this.isEditing = false;
     }
   }
 }

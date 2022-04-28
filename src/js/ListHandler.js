@@ -22,6 +22,7 @@ export default class ListHandler {
       this.deleteElement(newItem.index);
       this.renderItems();
     };
+   
     this.items.push(newItem);
     this.renderItems();
   }

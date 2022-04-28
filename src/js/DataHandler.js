@@ -8,6 +8,7 @@ export default class DataHandler {
       event.preventDefault();
       this.addItem();
     };
+    this.formInput = this.form[0];
     this.listHandler.saveData = () => {
       this.saveData();
     };
@@ -23,11 +24,25 @@ export default class DataHandler {
   }
 
   addItem() {
-    const inputValue = this.form[0].value;
+    if(!this.checkFormValidation()) { return; }
+    const inputValue = this.formInput.value;
     this.listHandler.addItem(inputValue);
     this.form.reset();
     this.form.focus();
     this.saveData();
+  }
+
+  checkFormValidation() {
+    let validated = false;
+    if(!this.formInput.checkValidity()) {
+      this.formInput.setCustomValidity('Add a task!');
+    }
+    else {
+      this.formInput.setCustomValidity('');
+      validated = true;
+    }
+
+    return validated;
   }
 
   saveData() {

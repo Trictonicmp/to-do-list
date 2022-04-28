@@ -137,6 +137,7 @@ main > *,
   font-size: 1em;
   background-color: transparent;
   color: var(--text-color);
+  resize: none;
 }
 
 .list-container li .description,
@@ -164,8 +165,8 @@ main > *,
   outline: none;
 }
 
-.list-container li .description span,
-.list-container li .description input[type=text] {
+.list-container li .description,
+.list-container li .description-input {
   flex-grow: 1;
 }
 
