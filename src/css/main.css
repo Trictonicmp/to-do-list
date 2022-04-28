@@ -1,4 +1,5 @@
 @import url('reset.css');
+@import url('animations.css');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;600&display=swap');
 
 /* ---------- CSS variables ---------- */
@@ -10,6 +11,7 @@
   --text-disabled-color: #aaa;
   --border-color: #eee;
   --accent-color: #f2f2f2;
+  --unique-color: #333;
   --editing-color: #fffeca;
   --icon-opacity: 0.2;
   --icon-opacity-hover: 0.5;
@@ -17,6 +19,7 @@
 
 body {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -82,6 +85,7 @@ main > *,
 .footer button {
   background-color: transparent;
   border: none;
+  color: var(--unique-color);
 }
 
 .header button:hover {
@@ -119,10 +123,18 @@ main > *,
   width: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .list-container li {
   display: flex;
+  align-items: center;
+  z-index: 1;
+  background-color: var(--main-color);
+  transition-property: background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+  overflow: hidden;
 }
 
 .list-container .checkbox {
@@ -135,6 +147,7 @@ main > *,
   font-size: 1em;
   background-color: transparent;
   color: var(--text-color);
+  resize: none;
 }
 
 .list-container li .description,
@@ -160,11 +173,6 @@ main > *,
   border: none;
   box-shadow: none;
   outline: none;
-}
-
-.list-container li .description span,
-.list-container li .description input[type=text] {
-  flex-grow: 1;
 }
 
 .list-container .checkbox:checked + span {
@@ -197,4 +205,19 @@ main > *,
 .footer button:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.insert {
+  animation-name: insert;
+  animation-duration: 0.3s;
+}
+
+.insert-button {
+  animation-name: insert-reversed;
+  animation-duration: 0.3s;
+}
+
+.delete {
+  animation-name: delete;
+  animation-duration: 0.3s;
 }

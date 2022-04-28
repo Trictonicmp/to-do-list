@@ -20,16 +20,31 @@ export default class ListHandler {
 
     newItem.deleteElement = () => {
       this.deleteElement(newItem.index);
-      this.renderItems();
     };
+
+    newItem.checkbox.onchange = (event) => {
+      newItem.setCompleted(event.target.checked);
+      this.saveData();
+    };
+
     this.items.push(newItem);
     this.renderItems();
   }
 
   deleteElement(elementIndex) {
-    this.items.splice(elementIndex, 1);
-    this.updateItemsIndex();
-    this.saveData();
+    this.items[elementIndex].delete();
+
+    this.items[elementIndex].htmlElement.getAnimations()[0].onfinish = () => {
+      this.items.splice(elementIndex, 1);
+      this.updateItemsIndex();
+      this.saveData();
+      this.renderItems();
+    };
+  }
+
+  clearCompleted() {
+    this.items = this.items.filter((item) => !item.completed);
+    this.renderItems();
   }
 
   updateItemsIndex() {
