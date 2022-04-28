@@ -10,8 +10,26 @@ export default class Item {
     this.htmlElement = document.createElement('li');
     this.descriptionSpan = document.createElement('span');
     this.descriptionInput = document.createElement('input');
+    this.deleteButton = document.createElement('button');
+
+    this.descriptionInput.oninput = () => {
+      this.updateDescription();
+    }
+
+    this.deleteButton.onclick = () => {
+      this.deleteElement();
+    }
 
     this.createHtml();
+  }
+
+  deleteElement() {
+    return this.index;
+  }
+
+  updateDescription() {
+    this.description = this.descriptionInput.value;
+    this.descriptionSpan.innerText = this.description;
   }
 
   createHtml() {
@@ -38,15 +56,14 @@ export default class Item {
     move.append(dotsImg);
     this.htmlElement.append(move);
 
-    const trash = document.createElement('button');
-    trash.type = 'button';
-    trash.classList.add('list-button');
-    trash.classList.add('trash');
+    this.deleteButton.type = 'button';
+    this.deleteButton.classList.add('list-button');
+    this.deleteButton.classList.add('trash');
     const trashImg = new Image();
     trashImg.src = trashSvg;
     trashImg.alt = 'delete';
-    trash.append(trashImg);
-    this.htmlElement.append(trash);
+    this.deleteButton.append(trashImg);
+    this.htmlElement.append(this.deleteButton);
   }
 
   getHtml() {
@@ -56,6 +73,7 @@ export default class Item {
   makeEditable(editable) {
     if(editable){
       this.htmlElement.classList.add('editing');
+      this.descriptionInput.focus();
     }
     else {
       this.htmlElement.classList.remove('editing');

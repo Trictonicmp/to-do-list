@@ -15,6 +15,10 @@ export default class DataHandler {
       event.preventDefault();
       this.addItem();
     }
+
+    this.listHandler.saveData = () => {
+      this.saveData();
+    }
   }
 
   addItem() {
