@@ -101,8 +101,6 @@ export default class Item {
 
   delete() {
     this.htmlElement.classList.add('delete');
-    this.htmlElement.onanimationend = () => {
-      return true;
-    }
+    this.htmlElement.style.zIndex = 0;
   }
 }

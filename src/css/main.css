@@ -18,6 +18,7 @@
 
 body {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -126,6 +127,8 @@ main > *,
 .list-container li {
   display: flex;
   align-items: center;
+  z-index: 1;
+  background-color: var(--main-color);
 }
 
 .list-container .checkbox {
