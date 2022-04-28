@@ -1,7 +1,6 @@
 @import url('reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;600&display=swap');
 
-
 /* ---------- CSS variables ---------- */
 :root {
   --body-color: #fefefe;
@@ -174,9 +173,7 @@ main > *,
   color: var(--text-disabled-color);
 }
 
-
 /* ----------styles when editing---------- */
-
 .list-container .editing {
   background-color: var(--editing-color);
 }
