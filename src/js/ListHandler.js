@@ -20,7 +20,6 @@ export default class ListHandler {
 
     newItem.deleteElement = () => {
       this.deleteElement(newItem.index);
-      this.renderItems();
     };
    
     this.items.push(newItem);
@@ -29,12 +28,13 @@ export default class ListHandler {
 
   deleteElement(elementIndex) {
     this.items[elementIndex].delete();
-    this.items[elementIndex].htmlElement.addEventListener('animationend', () => {
+
+    this.items[elementIndex].htmlElement.getAnimations()[0].onfinish = (event) => {
       this.items.splice(elementIndex, 1);
       this.updateItemsIndex();
       this.saveData();
       this.renderItems();
-    });
+    };
   }
 
   clearCompleted() {
