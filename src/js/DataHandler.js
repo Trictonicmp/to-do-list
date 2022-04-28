@@ -30,7 +30,7 @@ export default class DataHandler {
 
   addItem() {
     const inputValue = this.formInput.value;
-  
+
     this.listHandler.addItem(inputValue);
     this.form.reset();
     this.form.focus();
