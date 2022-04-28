@@ -29,24 +29,12 @@ export default class DataHandler {
   }
 
   addItem() {
-    if (!this.checkFormValidation()) { return; }
     const inputValue = this.formInput.value;
+  
     this.listHandler.addItem(inputValue);
     this.form.reset();
     this.form.focus();
     this.saveData();
-  }
-
-  checkFormValidation() {
-    let validated = false;
-    if (!this.formInput.checkValidity()) {
-      this.formInput.setCustomValidity('Add a task!');
-    } else {
-      this.formInput.setCustomValidity('');
-      validated = true;
-    }
-
-    return validated;
   }
 
   saveData() {
