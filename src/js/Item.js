@@ -98,4 +98,11 @@ export default class Item {
       this.isEditing = false;
     }
   }
+
+  delete() {
+    this.htmlElement.classList.add('delete');
+    this.htmlElement.onanimationend = () => {
+      return true;
+    }
+  }
 }
