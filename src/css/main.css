@@ -119,10 +119,12 @@ main > *,
   width: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .list-container li {
   display: flex;
+  align-items: center;
 }
 
 .list-container .checkbox {
@@ -197,4 +199,20 @@ main > *,
 .footer button:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+@keyframes insert {
+  from {
+    opacity: 0;
+    transform: translateY(3em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.insert {
+  animation-name: insert;
+  animation-duration: .3s;
 }

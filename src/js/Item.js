@@ -6,12 +6,13 @@ export default class Item {
     this.description = description;
     this.index = index;
     this.completed = completed;
+    this.isNew = true;
 
     this.htmlElement = document.createElement('li');
     this.descriptionSpan = document.createElement('span');
     this.descriptionInput = document.createElement('input');
     this.deleteButton = document.createElement('button');
-
+    this.htmlElement.classList.add('insert');
     this.descriptionInput.oninput = () => {
       this.updateDescription();
     };
@@ -70,6 +71,10 @@ export default class Item {
   }
 
   getHtml() {
+    if(!this.isNew) {
+      this.htmlElement.classList.remove('insert');
+    }
+    this.isNew = false;
     return this.htmlElement;
   }
 
