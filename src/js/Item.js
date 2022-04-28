@@ -48,7 +48,7 @@ export default class Item {
     checkbox.classList.add('checkbox');
     checkbox.type = 'checkbox';
     checkbox.onchange = (event) => {
-      this.toggleCompleted(event);
+      this.completed = event.target.checked;
     }
     this.htmlElement.append(checkbox);
 
@@ -63,6 +63,7 @@ export default class Item {
     move.type = 'button';
     move.classList.add('list-button');
     move.classList.add('move');
+    move.classList.add('insert');
     const dotsImg = new Image();
     dotsImg.src = dotsSvg;
     dotsImg.alt = ':';
@@ -72,6 +73,7 @@ export default class Item {
     this.deleteButton.type = 'button';
     this.deleteButton.classList.add('list-button');
     this.deleteButton.classList.add('trash');
+    this.deleteButton.classList.add('insert');
     const trashImg = new Image();
     trashImg.src = trashSvg;
     trashImg.alt = 'delete';
@@ -85,10 +87,6 @@ export default class Item {
     }
     this.isNew = false;
     return this.htmlElement;
-  }
-
-  toggleCompleted(event) {
-    this.completed = event.target.checked;
   }
 
   makeEditable(editable) {

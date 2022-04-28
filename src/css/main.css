@@ -129,6 +129,9 @@ main > *,
   align-items: center;
   z-index: 1;
   background-color: var(--main-color);
+  transition-property: background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
 }
 
 .list-container .checkbox {
