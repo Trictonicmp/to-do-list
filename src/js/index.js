@@ -1,10 +1,8 @@
 /* ------------------ CSS ------------------ */
 import '../css/main.css';
 
-import ItemsHandler from './ItemsHandler.js';
+/* ------------- Custom modules ------------ */
+import DataHandler from './DataHandler.js';
 
-const itemsHandler = new ItemsHandler();
-itemsHandler.addItem('First Element');
-itemsHandler.addItem('Second Element');
-itemsHandler.addItem('Third Element');
-itemsHandler.addItem('Fourth Element');
+const dataHandler = new DataHandler();
+dataHandler.saveData();

@@ -6,28 +6,48 @@ export default class Item {
     this.description = description;
     this.index = index;
     this.completed = completed;
+
+    this.htmlElement = document.createElement('li');
+    this.descriptionSpan = document.createElement('span');
+    this.descriptionInput = document.createElement('input');
+    this.deleteButton = document.createElement('button');
+
+    this.descriptionInput.oninput = () => {
+      this.updateDescription();
+    };
+
+    this.deleteButton.onclick = () => {
+      this.deleteElement();
+    };
+
+    this.createHtml();
+  }
+
+  setIndex(index) {
+    this.index = index;
+  }
+
+  /* Overriden by arrow function in ListHandler */
+  deleteElement = () => {}
+
+  updateDescription() {
+    this.description = this.descriptionInput.value;
+    this.descriptionSpan.innerText = this.description;
   }
 
   createHtml() {
-    const li = document.createElement('li');
-
-    const checkLabel = document.createElement('label');
-    checkLabel.classList.add('checkbox');
     const checkbox = document.createElement('input');
+    checkbox.classList.add('checkbox');
     checkbox.type = 'checkbox';
-    checkLabel.append(checkbox);
-    li.append(checkLabel);
+    this.htmlElement.append(checkbox);
 
-    const labelDesc = document.createElement('label');
-    labelDesc.classList.add('description');
-    const description = document.createElement('span');
-    description.innerText = this.description;
-    labelDesc.append(description);
-    const inputDesc = document.createElement('input');
-    inputDesc.type = 'text';
-    inputDesc.value = this.description;
-    labelDesc.append(inputDesc);
-    li.append(labelDesc);
+    this.descriptionSpan.innerText = this.description;
+    this.descriptionSpan.classList.add('description');
+    this.descriptionInput.type = 'text';
+    this.descriptionInput.value = this.description;
+    this.descriptionInput.classList.add('description-input');
+    this.htmlElement.append(this.descriptionSpan);
+    this.htmlElement.append(this.descriptionInput);
 
     const move = document.createElement('button');
     move.type = 'button';
@@ -37,18 +57,28 @@ export default class Item {
     dotsImg.src = dotsSvg;
     dotsImg.alt = ':';
     move.append(dotsImg);
-    li.append(move);
+    this.htmlElement.append(move);
 
-    const trash = document.createElement('button');
-    trash.type = 'button';
-    trash.classList.add('list-button');
-    trash.classList.add('trash');
+    this.deleteButton.type = 'button';
+    this.deleteButton.classList.add('list-button');
+    this.deleteButton.classList.add('trash');
     const trashImg = new Image();
     trashImg.src = trashSvg;
     trashImg.alt = 'delete';
-    trash.append(trashImg);
-    li.append(trash);
+    this.deleteButton.append(trashImg);
+    this.htmlElement.append(this.deleteButton);
+  }
 
-    return li;
+  getHtml() {
+    return this.htmlElement;
+  }
+
+  makeEditable(editable) {
+    if (editable) {
+      this.htmlElement.classList.add('editing');
+      this.descriptionInput.focus();
+    } else {
+      this.htmlElement.classList.remove('editing');
+    }
   }
 }

@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To-do list</title>
+  <link rel="shortcut icon" href="../src/images/favicon.svg">
 </head>
 <body>
   <main>
@@ -12,11 +13,12 @@
       <h1>Today's list</h1>
       <button type="button" title="Refresh" class="list-button"><img src="../src/images/refresh.svg" alt="refresh"></button>
     </div>
-    <form class="form">
+    <form class="form" id="main-form">
       <input type="text" placeholder="Add to your list...">
       <button type="submit" class="list-button"><img src="../src/images/intro.png" alt="add"></button>
     </form>
     <ul class="list-container" id="items-container">
+      <!-----------List container----------->
     </ul>
     <div class="footer">
       <button type="button">Clear all completed</button>
