@@ -11,6 +11,20 @@
 - Fameworks: N/A
 - Technologies: Linters, Git, GitHub, Webpack
 
+## Screenshots
+> Initial state
+
+![imagen](https://user-images.githubusercontent.com/11634112/165835674-3538b3f0-7fb3-4232-8a80-195f4fe1fc27.png)
+> Adding new Items
+
+![imagen](https://user-images.githubusercontent.com/11634112/165835885-ce6ef129-ad8a-4deb-a07e-649e14f63427.png)
+> Editing list items and deleting them with the "delete" button
+
+![imagen](https://user-images.githubusercontent.com/11634112/165836099-f1faa229-8fbd-4e7f-8541-2ca2aed299a0.png)
+> Completing tasks
+
+![imagen](https://user-images.githubusercontent.com/11634112/165836578-7c213bfe-2707-49dc-beae-a8fb172881ac.png)
+
 
 ## Getting Started
 
