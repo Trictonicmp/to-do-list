@@ -47,6 +47,9 @@ export default class Item {
     const checkbox = document.createElement('input');
     checkbox.classList.add('checkbox');
     checkbox.type = 'checkbox';
+    checkbox.onchange = (event) => {
+      this.toggleCompleted(event);
+    }
     this.htmlElement.append(checkbox);
 
     this.descriptionSpan.innerText = this.description;
@@ -82,6 +85,10 @@ export default class Item {
     }
     this.isNew = false;
     return this.htmlElement;
+  }
+
+  toggleCompleted(event) {
+    this.completed = event.target.checked;
   }
 
   makeEditable(editable) {

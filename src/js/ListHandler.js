@@ -37,6 +37,13 @@ export default class ListHandler {
     });
   }
 
+  clearCompleted() {
+    this.items = this.items.filter((item) => {
+      return !item.completed;
+    });
+    this.renderItems();
+  }
+
   updateItemsIndex() {
     this.items.forEach((item, index) => {
       item.setIndex(index);

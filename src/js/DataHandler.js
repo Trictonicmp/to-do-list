@@ -12,6 +12,11 @@ export default class DataHandler {
     this.listHandler.saveData = () => {
       this.saveData();
     };
+
+    this.completedButton = document.getElementById('completed-button');
+    this.completedButton.onclick = () => {
+      this.clearCompleted();
+    }
   }
 
   init() {
@@ -47,5 +52,11 @@ export default class DataHandler {
 
   saveData() {
     localStorage.setItem('list-data', JSON.stringify(this.listHandler.items));
+  }
+
+  clearCompleted() {
+    console.log('clear dh')
+    this.listHandler.clearCompleted();
+    this.saveData();
   }
 }
