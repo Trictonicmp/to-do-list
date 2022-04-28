@@ -21,6 +21,11 @@ export default class ListHandler {
     newItem.deleteElement = () => {
       this.deleteElement(newItem.index);
     };
+    
+    newItem.checkbox.onchange = (event) => {
+      newItem.setCompleted(event.target.checked);
+      this.saveData();
+    }
    
     this.items.push(newItem);
     this.renderItems();

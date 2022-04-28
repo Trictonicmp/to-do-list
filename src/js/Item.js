@@ -13,6 +13,8 @@ export default class Item {
     this.descriptionSpan = document.createElement('span');
     this.descriptionInput = document.createElement('textarea');
     this.descriptionInput.rows = 1;
+    this.checkbox = document.createElement('input');
+    this.checkbox.checked = this.completed;
     this.deleteButton = document.createElement('button');
     this.htmlElement.classList.add('insert');
     this.descriptionInput.oninput = () => {
@@ -44,13 +46,12 @@ export default class Item {
   }
 
   createHtml() {
-    const checkbox = document.createElement('input');
-    checkbox.classList.add('checkbox');
-    checkbox.type = 'checkbox';
-    checkbox.onchange = (event) => {
+    this.checkbox.classList.add('checkbox');
+    this.checkbox.type = 'checkbox';
+    this.checkbox.onchange = (event) => {
       this.completed = event.target.checked;
     }
-    this.htmlElement.append(checkbox);
+    this.htmlElement.append(this.checkbox);
 
     this.descriptionSpan.innerText = this.description;
     this.descriptionSpan.classList.add('description');
@@ -107,5 +108,10 @@ export default class Item {
   delete() {
     this.htmlElement.classList.add('delete');
     this.htmlElement.style.zIndex = 0;
+  }
+
+  setCompleted(completedValue) {
+    this.completed = completedValue;
+    console.log(this.completed);
   }
 }
