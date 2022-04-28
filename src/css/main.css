@@ -132,6 +132,7 @@ main > *,
   transition-property: background-color;
   transition-duration: 0.2s;
   transition-timing-function: ease-in;
+  overflow: hidden;
 }
 
 .list-container .checkbox {
@@ -211,6 +212,11 @@ main > *,
 
 .insert {
   animation-name: insert;
+  animation-duration: .3s;
+}
+
+.insert-button {
+  animation-name: insert-reversed;
   animation-duration: .3s;
 }
 

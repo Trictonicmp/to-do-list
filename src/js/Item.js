@@ -63,7 +63,7 @@ export default class Item {
     move.type = 'button';
     move.classList.add('list-button');
     move.classList.add('move');
-    move.classList.add('insert');
+    move.classList.add('insert-button');
     const dotsImg = new Image();
     dotsImg.src = dotsSvg;
     dotsImg.alt = ':';
