@@ -53,7 +53,7 @@ export default class ListHandler {
         item.makeEditable(true);
       } else {
         item.makeEditable(false);
-        this.renderItems();
+        this.saveData();
       }
     });
   }
