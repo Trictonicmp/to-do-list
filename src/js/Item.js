@@ -42,7 +42,7 @@ export default class Item {
   }
 
   updateInputHeight() {
-    this.descriptionInput.style.height = this.descriptionInput.scrollHeight.toString() + 'px';
+    this.descriptionInput.style.height = `${this.descriptionInput.scrollHeight.toString()}px`;
   }
 
   createHtml() {
@@ -50,7 +50,7 @@ export default class Item {
     this.checkbox.type = 'checkbox';
     this.checkbox.onchange = (event) => {
       this.completed = event.target.checked;
-    }
+    };
     this.htmlElement.append(this.checkbox);
 
     this.descriptionSpan.innerText = this.description;
@@ -83,7 +83,7 @@ export default class Item {
   }
 
   getHtml() {
-    if(!this.isNew) {
+    if (!this.isNew) {
       this.htmlElement.classList.remove('insert');
     }
     this.isNew = false;
@@ -92,9 +92,9 @@ export default class Item {
 
   makeEditable(editable) {
     if (editable) {
-      if(!this.isEditing) {
-        let spanHeight = this.descriptionSpan.clientHeight;
-        this.descriptionInput.style.height = spanHeight + 'px';
+      if (!this.isEditing) {
+        const spanHeight = this.descriptionSpan.clientHeight;
+        this.descriptionInput.style.height = `${spanHeight}px`;
         this.isEditing = true;
       }
       this.htmlElement.classList.add('editing');
@@ -112,6 +112,5 @@ export default class Item {
 
   setCompleted(completedValue) {
     this.completed = completedValue;
-    console.log(this.completed);
   }
 }

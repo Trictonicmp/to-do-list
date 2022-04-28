@@ -4,6 +4,7 @@
     transform: translateY(3em);
     margin-top: -3em;
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -17,6 +18,7 @@
     transform: translateY(-3em);
     margin-top: 0;
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -29,6 +31,7 @@
     transform: translateY(0);
     margin-top: 0;
   }
+
   to {
     opacity: 0;
     transform: translateY(-3em);

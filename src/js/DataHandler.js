@@ -8,7 +8,7 @@ export default class DataHandler {
       event.preventDefault();
       this.addItem();
     };
-    this.formInput = this.form[0];
+    this.formInput = document.querySelector('input');
     this.listHandler.saveData = () => {
       this.saveData();
     };
@@ -16,7 +16,7 @@ export default class DataHandler {
     this.completedButton = document.getElementById('completed-button');
     this.completedButton.onclick = () => {
       this.clearCompleted();
-    }
+    };
   }
 
   init() {
@@ -29,7 +29,7 @@ export default class DataHandler {
   }
 
   addItem() {
-    if(!this.checkFormValidation()) { return; }
+    if (!this.checkFormValidation()) { return; }
     const inputValue = this.formInput.value;
     this.listHandler.addItem(inputValue);
     this.form.reset();
@@ -39,10 +39,9 @@ export default class DataHandler {
 
   checkFormValidation() {
     let validated = false;
-    if(!this.formInput.checkValidity()) {
+    if (!this.formInput.checkValidity()) {
       this.formInput.setCustomValidity('Add a task!');
-    }
-    else {
+    } else {
       this.formInput.setCustomValidity('');
       validated = true;
     }
@@ -55,7 +54,6 @@ export default class DataHandler {
   }
 
   clearCompleted() {
-    console.log('clear dh')
     this.listHandler.clearCompleted();
     this.saveData();
   }

@@ -175,11 +175,6 @@ main > *,
   outline: none;
 }
 
-.list-container li .description,
-.list-container li .description-input {
-  flex-grow: 1;
-}
-
 .list-container .checkbox:checked + span {
   text-decoration: line-through;
   font-style: italic;
@@ -214,15 +209,15 @@ main > *,
 
 .insert {
   animation-name: insert;
-  animation-duration: .3s;
+  animation-duration: 0.3s;
 }
 
 .insert-button {
   animation-name: insert-reversed;
-  animation-duration: .3s;
+  animation-duration: 0.3s;
 }
 
 .delete {
   animation-name: delete;
-  animation-duration: .3s;
+  animation-duration: 0.3s;
 }

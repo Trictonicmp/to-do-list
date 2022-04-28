@@ -21,12 +21,12 @@ export default class ListHandler {
     newItem.deleteElement = () => {
       this.deleteElement(newItem.index);
     };
-    
+
     newItem.checkbox.onchange = (event) => {
       newItem.setCompleted(event.target.checked);
       this.saveData();
-    }
-   
+    };
+
     this.items.push(newItem);
     this.renderItems();
   }
@@ -34,7 +34,7 @@ export default class ListHandler {
   deleteElement(elementIndex) {
     this.items[elementIndex].delete();
 
-    this.items[elementIndex].htmlElement.getAnimations()[0].onfinish = (event) => {
+    this.items[elementIndex].htmlElement.getAnimations()[0].onfinish = () => {
       this.items.splice(elementIndex, 1);
       this.updateItemsIndex();
       this.saveData();
@@ -43,9 +43,7 @@ export default class ListHandler {
   }
 
   clearCompleted() {
-    this.items = this.items.filter((item) => {
-      return !item.completed;
-    });
+    this.items = this.items.filter((item) => !item.completed);
     this.renderItems();
   }
 
