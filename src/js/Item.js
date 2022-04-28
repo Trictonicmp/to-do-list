@@ -14,18 +14,21 @@ export default class Item {
 
     this.descriptionInput.oninput = () => {
       this.updateDescription();
-    }
+    };
 
     this.deleteButton.onclick = () => {
       this.deleteElement();
-    }
+    };
 
     this.createHtml();
   }
 
-  deleteElement() {
-    return this.index;
+  setIndex(index) {
+    this.index = index;
   }
+
+  /* Overriden by arrow function in ListHandler */
+  deleteElement = () => {}
 
   updateDescription() {
     this.description = this.descriptionInput.value;
@@ -71,11 +74,10 @@ export default class Item {
   }
 
   makeEditable(editable) {
-    if(editable){
+    if (editable) {
       this.htmlElement.classList.add('editing');
       this.descriptionInput.focus();
-    }
-    else {
+    } else {
       this.htmlElement.classList.remove('editing');
     }
   }

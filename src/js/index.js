@@ -5,3 +5,4 @@ import '../css/main.css';
 import DataHandler from './DataHandler.js';
 
 const dataHandler = new DataHandler();
+dataHandler.saveData();

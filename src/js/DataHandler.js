@@ -1,24 +1,24 @@
-import ListHandler from './ListHandler';
+import ListHandler from './ListHandler.js';
 
 export default class DataHandler {
   constructor() {
-    this.listHandler = null;
-    if(localStorage.getItem('list-data')) {
+    this.listHandler = new ListHandler();
+    if (localStorage.getItem('list-data')) {
       const storedData = JSON.parse(localStorage.getItem('list-data'));
-      this.listHandler = new ListHandler(storedData);  
+      storedData.forEach((item) => {
+        this.listHandler.addItem(item.description, item.completed);
+      });
     }
-    else {
-      this.listHandler = new ListHandler();
-    }
-    this.form = document.forms[0];
+
+    this.form = document.getElementById('main-form');
     this.form.onsubmit = (event) => {
       event.preventDefault();
       this.addItem();
-    }
+    };
 
     this.listHandler.saveData = () => {
       this.saveData();
-    }
+    };
   }
 
   addItem() {

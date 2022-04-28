@@ -130,12 +130,6 @@ main > *,
   margin-left: 0.8em;
 }
 
-.list-container .checkbox:checked + span {
-  text-decoration: line-through;
-  font-style: italic;
-  color: var(--text-disabled-color);
-}
-
 .list-container li .description-input {
   border: none;
   font-family: 'Nunito Sans', sans-serif;
@@ -144,25 +138,13 @@ main > *,
   color: var(--text-color);
 }
 
-.list-container li .description-input:focus,
-.list-container li .description-input:active {
-  border: none;
-  box-shadow: none;
-  outline: none;
-}
-
 .list-container li .description,
-.list-container li .description-input{
+.list-container li .description-input {
   color: var(--text-color);
   font-size: 1em;
   padding: 0.8em;
   flex-grow: 1;
   display: flex;
-}
-
-.list-container li .description span,
-.list-container li .description input[type=text] {
-  flex-grow: 1;
 }
 
 /* ----------styles when NOT editing---------- */
@@ -173,6 +155,25 @@ main > *,
 .list-container :not(.editing) .trash {
   display: none;
 }
+
+.list-container li .description-input:focus,
+.list-container li .description-input:active {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.list-container li .description span,
+.list-container li .description input[type=text] {
+  flex-grow: 1;
+}
+
+.list-container .checkbox:checked + span {
+  text-decoration: line-through;
+  font-style: italic;
+  color: var(--text-disabled-color);
+}
+
 
 /* ----------styles when editing---------- */
 
