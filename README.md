@@ -11,6 +11,9 @@
 - Fameworks: N/A
 - Technologies: Linters, Git, GitHub, Webpack
 
+## Live preview
+### [Here!!]( trictonicmp.github.io/to-do-list/)
+
 ## Screenshots
 > Initial state
 
